@@ -1,6 +1,6 @@
 # encoding:utf-8
 """
-Author: chendonghua@baidu.com All rights reserved baidu .inc
+Author: cdhmuer333@126.com
 Created time: 17/1/10 19:42
 """
 import unittest
@@ -34,7 +34,7 @@ class TestCrawlerThread(unittest.TestCase):
         """
         :return:
         """
-        url1 = "http://pycm.baidu.com:8081"
+        url1 = "http://localhost:8081"
         q = Queue()
         q.put(url1)
         thread1 = CrawlerThread(q)
@@ -42,7 +42,7 @@ class TestCrawlerThread(unittest.TestCase):
         self.assertEqual(CrawlerThreadPool.total_links, 5)
 
         #depth exceed test
-        url2 = 'http://pycm.baidu.com:8081/mirror/page1.html'
+        url2 = 'localhost:8081/mirror/page1.html'
         thread2 = CrawlerThread(q)
         thread2.crawl((url2, 101))
         self.assertEqual(CrawlerThreadPool.total_links, 5)

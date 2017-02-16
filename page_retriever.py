@@ -1,11 +1,6 @@
 # encoding:utf-8
-################################################################################
-#
-# Copyright (c) 2017 Baidu.com, Inc. All Rights Reserved
-#
-################################################################################
 """
-Author: chendonghua@baidu.com
+Author: cdhmuer333@126.com
 Created time: 16/12/29 17:57
 """
 
@@ -60,7 +55,7 @@ class PageRetriever(object):
         try:
             target_url_pattern = ConfReader.instance().get_target_urls()
             pattern = compile(target_url_pattern)
-            result = pattern.match(self._url)
+            result = pattern.search(self._url)
             if result is None:
                 #logger.info("Supported pattern is %s, but the url is %r" %
                 #            (target_url_pattern, self.__url))
@@ -90,15 +85,15 @@ class PageRetriever(object):
         存储方式：
            按照域名的路径建立本地树形目录，域名为根目录，分类名为一级目录
            如果空，则分类名使用域名。
-           example: http://bike.baidu.com/chendonghua
+           example: http://www.wikipedia.org/bike/chendonghua
            本地存储的目录结构为：
-               baidu.com
+               wikipedia.org
                --bike
                ----chendonghua
-           又如： https:www.baidu.com/somepage.html
+           又如： https:www.somenet.com/somepage.html
            本地存储的目录结构为：
-               baidu.com
-               --baidu.com
+               somenet.com
+               --somenet.com
                ----somepage.html
         :param url:
         :return:

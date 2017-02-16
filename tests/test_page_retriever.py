@@ -1,11 +1,6 @@
 # encoding:utf-8
-################################################################################
-#
-# Copyright (c) 2017 Baidu.com, Inc. All Rights Reserved
-#
-################################################################################
 """
-Author: chendonghua@baidu.com
+Author: cdhmuer333@126.com
 Created time: 17/1/12 10:17
 """
 
@@ -32,7 +27,7 @@ class TestPageRetriever(unittest.TestCase):
         """
         测试url下载
         """
-        r1 = PageRetriever('http://pycm.baidu.com:8081/page1.html')
+        r1 = PageRetriever('localhost:8081/page1.html')
         filename, headers = r1.download()
 
         self.assertEqual(os.path.exists(filename), True)
@@ -46,7 +41,7 @@ class TestPageRetriever(unittest.TestCase):
         maybe_dir = os.path.join(local_path, 'invalid_url')
         self.assertEqual(os.path.exists(maybe_dir), False)
 
-        r3 = PageRetriever('http://pycm.baidu.com:8081/')
+        r3 = PageRetriever('localhost:8081/')
         res = r3.download()
         self.assertIsNotNone(res)
         self.assertEqual(res[1].get_content_type(), 'text/html')

@@ -1,2 +1,2 @@
-http://pycm.baidu.com:8081
+http://nba.sina.cn/
 http://www.81mv.com

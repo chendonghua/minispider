@@ -1,11 +1,6 @@
 # encoding:utf-8
-################################################################################
-#
-# Copyright (c) 2017 Baidu.com, Inc. All Rights Reserved
-#
-################################################################################
 """
-Author: chendonghua@baidu.com
+Author: cdhmuer333@126.com
 Created time: 17/1/12 18:46
 """
 import unittest
@@ -37,18 +32,18 @@ class TestPageParser(unittest.TestCase):
         :return:
         """
         #parser = Page_parser()
-        url1 = 'http://pycm.baidu.com:8081/page1.html'
-        expect_sub_url = 'http://pycm.baidu.com:8081/1/page1_1.html'
+        url1 = 'localhost:8081/page1.html'
+        expect_sub_url = 'localhost:8081/1/page1_1.html'
         parser = PageParser(url1)
         links = parser.parse()
         self.assertIn(expect_sub_url, links)
 
-        url2 = 'http://pycm.baidu.com:8081/page7.html'
+        url2 = 'localhost:8081/page7.html'
         parser = PageParser(url2)
         links = parser.parse()
         self.assertEqual(links, set())
 
-        url3 = 'http://pycm.baidu.com:8081/3/image.jpg'
+        url3 = 'localhost:8081/3/image.jpg'
         parser = PageParser(url3)
         self.assertEqual(parser.parse(), set())
 
@@ -60,20 +55,20 @@ class TestPageParser(unittest.TestCase):
         使用其他格式的url文档，如jpg
         :return:
         """
-        url1 = 'http://pycm.baidu.com:8081/page1.html'
+        url1 = 'localhost:8081/page1.html'
         parser = PageParser(url1)
         content1 = parser.url_read()
         self.assertEqual(content1.__contains__('page1_4.html'), True)
         self.assertEqual(content1.__contains__('page1_1.html'), True)
 
         #invalid url test
-        url2 = 'http://pycm.baidu.com:8081/page7.html'
+        url2 = 'localhost:8081/page7.html'
         parser = PageParser(url2)
         content2 = parser.url_read()
         self.assertEqual(content2, '', "return content should be empty")
 
         #No support url test
-        url3 = 'http://pycm.baidu.com:8081/3/image.jpg'
+        url3 = 'localhost:8081/3/image.jpg'
         parser = PageParser(url3)
         content3 = parser.url_read()
         self.assertEqual(content3, '')

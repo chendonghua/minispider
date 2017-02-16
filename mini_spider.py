@@ -1,11 +1,6 @@
 # encoding:utf-8
-################################################################################
-#
-# Copyright (c) 2017 Baidu.com, Inc. All Rights Reserved
-#
-################################################################################
 """
-Author: chendonghua@baidu.com
+Author: cdhmuer333@126.com
 Created time: 16/12/28 15:05
 """
 from optparse import OptionParser
